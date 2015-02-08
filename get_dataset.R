@@ -27,8 +27,8 @@ get_dataset <- function() {
 # assumes mac, linux, or windows system configured with posix commands
 read_dataset <- function() {
     data <- read.csv(pipe(paste('grep -E \"Date|^[12]/2/2007\"', get_dataset())),
-                     sep=";", na.strings = "?")
-    data$Time <- strptime(paste(d$Date,d$Time),"%d/%m/%Y %H:%M:%S")
+                     sep = ";", na.strings = "?")
+    data$Time <- strptime(paste(d$Date, d$Time), "%d/%m/%Y %H:%M:%S")
     data$Date <- as.Date(data$Time)
     data
 }
